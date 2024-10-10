@@ -181,7 +181,6 @@ In order for the morph to work you will need a <u>consistent</u> labeling of the
   (i.e. mean of the two point sets) to lessen the potential triangle
   deformations.</p>
 <p>Note if you don't want to implement your own labeling tool, you can use <a href="https://cal-cs180.github.io/fa23/hw/proj3/tool.html"> this one </a> from a last year's student.</p>
-
 <h3>Part 2. Computing the "Mid-way Face"</h3>
 <p>Before computing the whole morph sequence, compute the mid-way face of your images A and B. This would involve: 1) computing the average
   shape (a.k.a the average of each keypoint location in the two faces), 2) warping both faces into that shape, and 3) averaging the colors
@@ -247,6 +246,35 @@ parameters lie in the range [0,1]. They are the only parameters that will vary
 from frame to frame in the animation. For your starting frame, they will both
 equal 0, and for your ending frame, they will both equal 1.</p>
 <p>The output of this part should be a video sequence of a morph from your image A to image B. Please do NOT put a video file on your website! Either include a link to a YouTube video, or create an animated gif.</p>
+<h1 style="color:blue">Begin Solution Part 1, Part 2, and Part 3</h1>
+<center>
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: I used the provided correspondence tool to define and extract correspondences, which are stored in the proj3.py code file as numpy arrays.</h3>
+<br>
+<img src="WebImage1.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: Below is a set of mean delaunay triangles (delaunay of mean points) with corner points omitted to see the average face only, without interference from background, clothing, or hairstyle.</h3>
+<br>
+<img src="WebImage2.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: The Mid-Way face shows colors from both faces and a mean of features, which can be best observed when looking at the shape of the eyebrows or the beard's thickness.</h3>
+<br>
+<img src="WebImage3.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: Below is a set of mean delaunay triangles (delaunay of mean points) with corners added through a helper function (for best alignment) and full image visibility.</h3>
+<br>
+<img src="WebImage4.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: This is the complete Mid-Way face with overlapping differences, such as the clothing and hairstyle.</h3>
+<br>
+<img src="WebImage5.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: This the .gif generated with 45 images total (43 intermediate images) and linear interpolation. </h3>
+<br>
+<img src="me_zach_transform.gif" style="max-width:70%">
+<br>
+</center>
+<h1 style="color:blue; max-width:70%">End Solution Part 1, Part 2, and Part 3</h1>
 <h3>Part 4. The "Mean face" of a population</h3>
 <p>Pick a freely available dataset of annotated faces (for instance the <a href="https://web.archive.org/web/20210305094647/http://www2.imm.dtu.dk/~aam/datasets/datasets.html">Danes</a> or <a href="http://fei.edu.br/~cet/facedatabase.html">this one</a> or <a href="http://www.face-rec.org/databases/">something from here</a> or ask for permission to use <a href="http://www2.ece.ohio-state.edu/~aleix/ARdatabase.html">this one</a>). Using the keypoints already annotated on the data:</p>
 <ol>
@@ -264,6 +292,27 @@ into your geometry.</p>
   <img src="caricature2.png" alt="mean face" style="width:20%" height="200"></div>
   <div class="column"></div>
 </div>
+<h1 style="color:blue">Begin Solution Part 4 and Part 5</h1>
+<center>
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: This is an average face calculated from 18 faces numbered from 0.jpg to 17.jpg. The faces were morphed to a mean shape, calculated from the mean points. Then all faces were morphed and then averaged. There are some examples of morphed faces shown below.</h3>
+<br>
+<img src="WebImage6.png" style="max-width:70%">
+<br>
+<img src="WebImage6_1.png" style="max-width:70%">
+<br>
+<img src="WebImage6_2.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: Shown below is the average face reshaped to mine, my face reshaped to the average face, and extrapolation of alpha = -1.5 applied to the Average-er and Me-er faces. </h3>
+<br>
+<img src="WebImage7.png" style="max-width:70%">
+<br>
+<h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: The images below are a repeat of the images above, ran with the same code, except that the value of alpha has now been changed to -2. </h3>
+<br>
+<img src="WebImage8.png" style="max-width:70%">
+<br>
+</center>
+<h1 style="color:blue; max-width:70%">End Solution Part 4 and Part 5</h1>
 <h3>Bells and Whistles - (you will have to do at least one in order to get full credit)</h3>
 
 <ul>
@@ -303,6 +352,24 @@ into your geometry.</p>
     Make an interactive tool that allows you to use keypoints as handles to manually drag and alter facial expression or proportions.</li>
     
   </ul>
+
+  <h1 style="color:blue">Begin Solution Bells and Whistles</h1>
+  <center>
+  <br>
+  <h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: The correspondence tool was used to generate 45 correspondence points to the angry face, from which only the points are necessary. </h3>
+  <br>
+  <img src="WebImage9.png" style="max-width:70%">
+  <br>
+  <h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: Teh correspondence tool was used to generate 45 correspondence points to the average African-American face. Both the points and image data will be used.</h3>
+  <br>
+  <img src="WebImage10.png" style="max-width:70%">
+  <br>
+  <h3 style="color:blue; max-width:70%; color:blue; max-width:70%; border-style: solid; border-width: 5px; border-color:orange; background-color:pink; font-variant: normal;">DESCRIPTION: Shown below are five images (from left): original image of my face, my face morphed to the angry face using two sets of points, to achieve varying levels of anger, African-American average face morphed to my face shape, and a hybridization/mean of the two faces.</h3>
+  <br>
+  <img src="WebImage11.png" style="max-width:70%">
+  <br>
+  </center>
+  <h1 style="color:blue; max-width:70%">End Solution Bells and Whistles</h1>
 
 <h3>Deliverables and Scoring</h3>
 
